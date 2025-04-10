@@ -1,0 +1,221 @@
+/* Stile del chatbot */
+.smarttalk-chatbot {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: #2563EB;
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.smarttalk-chatbot:hover {
+    background: #1D4ED8;
+    transform: scale(1.1);
+}
+
+.smarttalk-chatbot i {
+    font-size: 1.5rem;
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    width: 24rem;
+    height: 500px;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    z-index: 9998;
+    display: none;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #2563EB;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.close-button:hover {
+    color: #E5E7EB;
+}
+
+.chat-messages {
+    padding: 1rem;
+    height: calc(100% - 10.5rem);
+    overflow-y: auto;
+    background: #F9FAFB;
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    max-width: 80%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.user-message {
+    background: #2563EB;
+    color: white;
+    margin-left: auto;
+}
+
+.ai-message {
+    background: #E5E7EB;
+    color: #1F2937;
+}
+
+.error-message {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+}
+
+.chat-input {
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+}
+
+#message-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: #2563EB;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+#send-button {
+    background: #2563EB;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#send-button:hover {
+    background: #1D4ED8;
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #E5E7EB;
+    border-radius: 0.5rem;
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+.typing-indicator .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #6B7280;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* Animazioni */
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.chat-window.show {
+    animation: slideIn 0.3s ease-out;
+}
+
+.chat-window.hide {
+    animation: slideOut 0.3s ease-in;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .chat-window {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+    
+    .smarttalk-chatbot {
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+} 
